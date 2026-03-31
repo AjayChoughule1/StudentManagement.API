@@ -8,7 +8,7 @@ namespace StudentManagement.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    //[Authorize]
+    [Authorize]
     public class TeachersController : ControllerBase
     {
         private readonly TeacherService _svc;
@@ -25,7 +25,7 @@ namespace StudentManagement.API.Controllers
         }
 
         [HttpPost]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create([FromBody] CreateTeacherDto dto)
         {
             var created = await _svc.CreateAsync(dto);
@@ -33,12 +33,12 @@ namespace StudentManagement.API.Controllers
         }
 
         [HttpPut("{id}")]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Update(int id, [FromBody] UpdateTeacherDto dto) =>
             Ok(await _svc.UpdateAsync(id, dto));
 
         [HttpDelete("{id}")]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int id)
         {
             await _svc.DeleteAsync(id);
