@@ -12,7 +12,7 @@ using StudentManagement.API.Infrastructure.Data;
 namespace StudentManagement.API.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260331175912_InitialCreate")]
+    [Migration("20260401101734_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
